@@ -1,0 +1,22 @@
+{
+  "name": "nodescheduler",
+  "version": "1.0.0",
+  "description": "A message scheduling app built with NodeJs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sabigooner7/MessageScheduler.git"
+  },
+  "author": "Muhammad Sabeeh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sabigooner7/MessageScheduler/issues"
+  },
+  "homepage": "https://github.com/sabigooner7/MessageScheduler#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
