@@ -6,7 +6,7 @@ const mysql=require("mysql");
 const fetch= require("node-fetch");
 const connection= require('./models/db');
 const logger = require('./util/logger').logger;
-const appSecurity = require("./security");
+const appSecurity = require("./util/security");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
