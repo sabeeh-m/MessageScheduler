@@ -181,9 +181,8 @@ if(!Object.keys(req.query).length==0  ){
 //checks to see if pagenumber exists in url and is valid, and then changes values of start as per pagenumber accordingly
      if( req.query.pagenumber!="" && req.query.pagenumber!=0 && !isNaN(req.query.pagenumber)){
         console.log("pagenumber "+req.query.pagenumber)
-        pageNumber=
         itemsPerPage=10;
-        start=req.query.pagenumber*itemsPerPage-0;
+        start=req.query.pagenumber*itemsPerPage-10;
         console.log("start "+start)
          }
 //checks to see if from and to exist in url to change the time range in query          
@@ -226,9 +225,9 @@ app.get("/smsstatus/:key",appSecurity,(req,res)=>{
 //check to see if pagenumber query parametere is passed     
        if( req.query.pagenumber!="" && req.query.pagenumber!=0 && !isNaN(req.query.pagenumber)){
            console.log("pagenumber "+req.query.pagenumber)
-           pageNumber=
+           pageNumber=req.query.pagenumber;
            itemsPerPage=10;
-           start=req.query.pagenumber*itemsPerPage-0;
+           start=req.query.pagenumber*itemsPerPage-10;
     }
    
    
@@ -274,6 +273,23 @@ app.get("/smsstatus/:key",appSecurity,(req,res)=>{
 //route to add new schedule
 app.post("/newschedule/:key",appSecurity,(req,res)=>{
 let {name,time,message,recipents}=req.body;
+console.log(name);
+if(!name){
+    res.json({message:"name param missing"});
+    return
+}
+if(!time){
+    res.json({message:"time param missing"});
+    return
+}
+if(!message){
+    res.json({message:"message param missing"});
+    return
+}
+if(!recipents){
+    res.json({message:"recipents param missing"});
+    return
+}
 let query=mysql.format("insert into schedules (time,recipents,name,message) values (?,?,?,?)",[time,recipents,name,message]);
 connection.query(query,(err,data)=>{
     if(err){
