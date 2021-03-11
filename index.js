@@ -287,7 +287,7 @@ connection.query(query,(err,data)=>{
 })
 
 //Setting the server to listen to the default port of the os.
-app.listen(81,()=>{
+app.listen(3000,()=>{
 
-    console.log("Server has started at port 81");
+    console.log("Server has started at port 3000");
 })
